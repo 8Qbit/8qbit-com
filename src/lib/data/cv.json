@@ -1,0 +1,125 @@
+{
+  "name": "Paul Nylund",
+  "title": "Senior Infrastructure Engineer",
+  "tagline": "Taking over the world one container at a time",
+  "summary": "I started my IT career as a programmer and steadily moved on to IT management positions. I have worked with pretty much everything that runs in data-centers. Most of my work history I have been involved in selecting technologies and building processes for software development or hosting large production environments. Lately I have been working with DevOps and Native Cloud managed services. I am a solution oriented person who makes great effort to help co-workers be more productive. I am a no-nonsense kind of guy who stays focused, but I also have a great sense of humor and welcome feedback.",
+  "experience": [
+    {
+        "company": "Riskidev Oy",
+        "role": "Senior Infrastructure Engineer",
+        "period": "2024 - Present",
+        "location": "Turku, Finland",
+        "highlights": [
+          "Squad Lead - Production Development",
+          "Chapter Lead - DevOps / Infrastructure"
+        ]
+      },
+    {
+      "company": "Anders Innovations Oy",
+      "role": "CIO",
+      "period": "2018 - 2024",
+      "location": "Turku, Finland",
+      "highlights": [
+        "Team Leader for DevOps Customer Support",
+        "Service Manager for Customer Support Hosting",
+        "Security Officer responsibilities",
+        "Contract and customer management"
+      ]
+    },
+    {
+      "company": "Anders Innovations",
+      "role": "Service Manager / Team Lead",
+      "period": "2014 - 2018",
+      "location": "Turku, Finland",
+      "highlights": [
+        "Team Lead for Customer support team and Turku developers",
+        "Solution Architect for hosting services",
+        "Datacenter planning for production environments",
+        "Automation for software deployments",
+        "Infrastructure consulting for customers"
+      ]
+    },
+    {
+      "company": "Anders Innovations",
+      "role": "Solution Architect",
+      "period": "2013 - 2014",
+      "location": "Turku, Finland",
+      "highlights": [
+        "Standardizing and automating server infrastructure",
+        "Creating robust development and deployment environments"
+      ]
+    },
+    {
+      "company": "Nokia / HCL",
+      "role": "Technology Manager / System Analyst",
+      "period": "2010 - 2013",
+      "location": "Salo, Finland",
+      "highlights": [
+        "Development of IT technologies and platforms",
+        "Optimized and harmonized Nokia IT environment",
+        "Technical specialist for business infrastructure"
+      ]
+    },
+    {
+      "company": "Nokia",
+      "role": "Senior Integration Specialist",
+      "period": "2007 - 2010",
+      "location": "Salo, Finland",
+      "highlights": [
+        "Linux/Unix troubleshooting and support",
+        "Linux platform planning",
+        "Subject Matter Expert for Linux OS"
+      ]
+    },
+    {
+      "company": "Looptec Oy / Fujitsu",
+      "role": "System Specialist",
+      "period": "2003 - 2007",
+      "location": "Turku, Finland",
+      "highlights": [
+        "Linux/Unix/Windows administration",
+        "Network administration"
+      ]
+    },
+    {
+      "company": "Probatus",
+      "role": "Software Specialist / Release Engineer",
+      "period": "2000 - 2002",
+      "location": "Turku, Finland",
+      "highlights": [
+        "Team leader / Buildmaster",
+        "Build system implementation with Linux CVS and GNU Make",
+        "Installation packages for UNIX and Windows",
+        "Java development with SonicMQ technology"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "SASKY",
+      "degree": "Supervisor / Team Lead",
+      "period": "2019 - 2020",
+      "focus": "Vocational Qualification"
+    },
+    {
+      "institution": "Vocational Adult Educational Centre",
+      "degree": "Programming C/C++",
+      "period": "2000 - 2001",
+      "focus": "Programming, Database Management, Software Development"
+    }
+  ],
+  "skills": {
+    "platforms": ["Linux", "Unix", "Windows", "Docker", "Kubernetes"],
+    "cloud": ["AWS", "Google Cloud", "DigitalOcean"],
+    "languages": ["Python","TypeScript"],
+    "management": ["Team Leadership", "Service Management", "Security"],
+    "infrastructure": ["Datacenter", "Networking", "CI/CD", "Automation"],
+    "tools": ["Git", "Ansible", "Terraform", "Jenkins", "Pulumi"]
+  },
+  "contact": {
+    "email": "paul.nylund@gmail.com",
+    "linkedin": "linkedin.com/in/paulnylund",
+    "github": "github.com/8Qbit",
+    "website": "8qbit.com"
+  }
+}

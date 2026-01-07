@@ -1,0 +1,115 @@
+{
+  "name": "8Qbit",
+  "title": "Gamer / Tech Enthusiast",
+  "tagline": "Taking over the world one pixel at a time",
+  "summary": "When I'm not wrangling containers and servers, you'll find me trying (struggling) to figure out how to keep my family alive and happy. To avoid gathering too much belly fat and growing roots to my chair, I'm trying to stay active by doing Muay Thai and lifting weights. What ever time is left over, I usually spend by playing some very simple games while listening/watching podcasts that interest me.",
+  "experience": [
+    {
+        "company": "Home",
+        "role": "Husband",
+        "period": "2012 - Present",
+        "location": "Turku",
+        "highlights": [
+          "It's an ongoing project, but I'm doing my best!"
+        ]
+    },
+    {
+        "company": "Home",
+        "role": "Father / Guardian",
+        "period": "2008 - Present",
+        "location": "Turku",
+        "highlights": [
+          "Generic Boy - The best son!",
+          "Generic Girl - The best daughter!",
+          "Sauron - The best cat! RIP :(",
+          "Hiro - The best dog! RIP :("
+        ]
+    },
+    {
+        "company": "Sports",
+        "role": "Amateur Athlete",
+        "period": "Most of my life",
+        "location": "Here and there",
+        "highlights": [
+          "Muay Thai - I kick your ass!",
+          "Weight lifting - I lift your ass!"
+        ]
+    },
+    {
+      "company": "Personal Projects",
+      "role": "Tech Enthusiast",
+      "period": "Since C64",
+      "location": "The Internet",
+      "highlights": [
+        "Building random fun projects (like this website)",
+        "Learning new technologies for fun",
+        "Breaking things and fixing them"
+      ]
+    },
+    {
+      "company": "Gaming",
+      "role": "Casual Gamer",
+      "period": "Always",
+      "location": "\"Koppi\" My man cave",
+      "highlights": [
+        "Strategy games enthusiast",
+        "Indie game supporter",
+        "Idle clicker games (not proud of it though)",
+        "Custom PC builder",
+        "Retro gaming enthusiast"
+      ]
+    },
+    {
+        "company": "Personal Intrests",
+        "role": "Beginner Thinker",
+        "period": "Since always",
+        "location": "The world",
+        "highlights": [
+          "Philosophy",
+          "Psychology",
+          "Sociology",
+          "Politics",
+          "Economics",
+          "Science",
+          "Technology"
+        ]
+      }
+  ],
+  "education": [
+    {
+        "institution": "Life",
+        "degree": "Not graduated yet",
+        "period": "Ongoing (luckily!)",
+        "focus": "Learning from my mistakes"
+    },
+    {
+      "institution": "Interweb University",
+      "degree": "Self-Taught Everything",
+      "period": "Ongoing",
+      "focus": "Whatever catches my interest"
+    },
+    {
+        "institution": "Home University",
+        "degree": "Husbandry",
+        "period": "Ongoing",
+        "focus": "Learning from my wife"
+      },
+    {
+      "institution": "The School of Dads",
+      "degree": "Fatherhood",
+      "period": "Since 2008",
+      "focus": "Learning from my kids"
+    }
+  ],
+  "skills": {
+    "gaming": ["Strategy Games", "Adventure Games", "Indie Games", "Idle Clicker Games"],
+    "all time favorite games": ["Day of the Tentacle", "Monkey Island 2", "Jagged Alliance 2", "baldurs gate 2", "Fallout 2"],
+    "hobbies": ["Beer Drinking", "Muay Thai"],
+    "communities": ["Discord", "Reddit", "Facebook (I'm old)"]
+  },
+  "contact": {
+    "discord": "8qbit_",
+    "github": "github.com/8Qbit",
+    "website": "8qbit.com"
+  }
+}

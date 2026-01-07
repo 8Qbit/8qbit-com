@@ -1,0 +1,634 @@
+/* Day of the Tentacle Inspired Design System - Adventure Game Style */
+
+/* ===== COLOR PALETTE - Directly from the game ===== */
+:root {
+  /* Purple Tentacle colors */
+  --purple-dark: #4A1259;
+  --purple-main: #7B2D8E;
+  --purple-light: #B84BC9;
+  
+  /* Green Tentacle / Slime colors */
+  --green-dark: #1B5E20;
+  --green-main: #4CAF50;
+  --green-light: #8BC34A;
+  
+  /* Game UI colors */
+  --ui-dark: #1a1a2e;
+  --ui-mid: #16213e;
+  --ui-light: #0f3460;
+  --ui-accent: #e94560;
+  
+  /* Mansion/Background colors */
+  --mansion-dark: #2d132c;
+  --mansion-mid: #4a1942;
+  --mansion-light: #6b2d5c;
+  --mansion-accent: #c84b31;
+  
+  /* Text and UI */
+  --text-white: #FFFEF2;
+  --text-cream: #F5E6D3;
+  --text-gold: #FFD700;
+  --text-cyan: #00FFFF;
+  
+  /* Classic SCUMM interface colors */
+  --scumm-bg: #000033;
+  --scumm-border: #6666AA;
+  --scumm-highlight: #AAAAFF;
+  --scumm-button: #333366;
+  
+  /* Pixel sizing */
+  --pixel: 4px;
+  
+  /* Theme-specific (defaults to professional/blue) */
+  --theme-bg: var(--scumm-bg);
+  --theme-accent: var(--purple-main);
+  --theme-glow: var(--purple-light);
+}
+
+/* ===== THEME: 8Qbit (Green) ===== */
+.theme-8qbit {
+  --theme-bg: #001a00;
+  --theme-accent: var(--green-main);
+  --theme-glow: var(--green-light);
+  --scumm-bg: #001a00;
+  --scumm-border: #44AA66;
+  --scumm-highlight: #88FFAA;
+  --scumm-button: #224433;
+}
+
+/* ===== THEME: Professional (Blue) ===== */
+.theme-professional {
+  --theme-bg: #000033;
+  --theme-accent: var(--purple-main);
+  --theme-glow: var(--purple-light);
+  --scumm-bg: #000033;
+  --scumm-border: #6666AA;
+  --scumm-highlight: #AAAAFF;
+  --scumm-button: #333366;
+}
+
+/* ===== BASE RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  background: var(--theme-bg);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.4s ease;
+}
+
+/* ===== GAME SCREEN CONTAINER ===== */
+.game-screen {
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-left: var(--pixel) solid var(--scumm-border);
+  border-right: var(--pixel) solid var(--scumm-border);
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== OLD TV EFFECTS ===== */
+
+/* Base scanlines - always visible */
+.game-screen::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.2) 2px,
+    rgba(0, 0, 0, 0.2) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Vignette - darker edges */
+.tv-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 994;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 70%,
+    rgba(0, 0, 0, 0.85) 90%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+/* Rolling horizontal bar - subtle bad reception */
+.tv-rolling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 995;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 150px,
+    rgba(255, 255, 255, 0.02) 150px,
+    rgba(255, 255, 255, 0.03) 160px,
+    rgba(255, 255, 255, 0.02) 170px,
+    transparent 170px,
+    transparent 300px
+  );
+  animation: roll-subtle 12s linear infinite;
+}
+
+@keyframes roll-subtle {
+  0% { transform: translateY(-300px); }
+  100% { transform: translateY(300px); }
+}
+
+/* Occasional screen flicker - very subtle */
+.tv-flicker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 993;
+  background: transparent;
+  animation: subtle-flicker 15s ease-in-out infinite;
+}
+
+@keyframes subtle-flicker {
+  0%, 89%, 100% { opacity: 0; }
+  90% { opacity: 0.015; background: rgba(255, 255, 255, 0.5); }
+  91% { opacity: 0; }
+  93% { opacity: 0.01; background: rgba(255, 255, 255, 0.3); }
+  94% { opacity: 0; }
+}
+
+/* Color ghosting / RGB shift - subtle */
+.tv-ghosting {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 992;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.015) 0%,
+    transparent 10%,
+    transparent 90%,
+    rgba(0, 255, 255, 0.015) 100%
+  );
+}
+
+/* Horizontal sync wobble - very subtle jitter */
+.tv-wobble {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 991;
+  animation: subtle-wobble 20s ease-in-out infinite;
+}
+
+@keyframes subtle-wobble {
+  0%, 85%, 100% { transform: translateX(0); }
+  87% { transform: translateX(-1px); }
+  88% { transform: translateX(1px); }
+  89% { transform: translateX(0); }
+  91% { transform: translateX(0.5px); }
+  92% { transform: translateX(-0.5px); }
+  93% { transform: translateX(0); }
+}
+
+/* ===== CHANNEL CHANGE EFFECT ===== */
+.channel-change-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.channel-change-overlay.active {
+  visibility: visible;
+  animation: channel-switch 0.4s steps(8) forwards;
+}
+
+.channel-change-overlay::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: static-noise 0.05s steps(4) infinite;
+}
+
+.channel-change-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 4px,
+    rgba(255, 255, 255, 0.1) 4px,
+    rgba(255, 255, 255, 0.1) 8px
+  );
+}
+
+@keyframes channel-switch {
+  0% { 
+    opacity: 1; 
+    background: #111;
+  }
+  10% { 
+    opacity: 1; 
+    background: linear-gradient(180deg, #000 0%, #fff 2%, #000 4%, #fff 6%, #000 100%);
+  }
+  20% { 
+    opacity: 1; 
+    background: #222;
+  }
+  30% { 
+    opacity: 0.9; 
+    background: linear-gradient(180deg, #fff 0%, #000 10%, #fff 20%, #000 100%);
+  }
+  40% { 
+    opacity: 0.8; 
+    background: #111;
+  }
+  50% { 
+    opacity: 0.6; 
+    background: #000;
+  }
+  70% { 
+    opacity: 0.3; 
+    background: #000;
+  }
+  100% { 
+    opacity: 0; 
+    background: transparent;
+  }
+}
+
+@keyframes static-noise {
+  0% { transform: translate(0, 0) scale(1.5); }
+  25% { transform: translate(-5%, 5%) scale(1.5); }
+  50% { transform: translate(5%, -5%) scale(1.5); }
+  75% { transform: translate(-5%, -5%) scale(1.5); }
+  100% { transform: translate(0, 0) scale(1.5); }
+}
+
+/* Horizontal rolling bar during channel change */
+.channel-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 60%,
+    transparent 100%
+  );
+  animation: bar-roll 0.15s linear infinite;
+}
+
+@keyframes bar-roll {
+  0% { top: -60px; }
+  100% { top: 100%; }
+}
+
+/* ===== SCUMM-STYLE VERB BAR ===== */
+.verb-bar {
+  background: var(--scumm-bg);
+  border-top: var(--pixel) solid var(--scumm-border);
+  border-bottom: var(--pixel) solid var(--scumm-border);
+  padding: calc(var(--pixel) * 3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--pixel) * 2);
+  justify-content: center;
+}
+
+.verb-btn {
+  background: var(--scumm-button);
+  color: var(--text-cyan);
+  border: calc(var(--pixel) / 2) solid var(--scumm-border);
+  padding: calc(var(--pixel) * 2) calc(var(--pixel) * 3);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.1s;
+}
+
+.verb-btn:hover, .verb-btn.active {
+  background: var(--scumm-highlight);
+  color: var(--scumm-bg);
+}
+
+/* ===== DIALOG BOX - Classic Adventure Game Style ===== */
+.dialog-box {
+  background: var(--scumm-bg);
+  border: var(--pixel) solid var(--scumm-border);
+  padding: calc(var(--pixel) * 4);
+  margin: calc(var(--pixel) * 4);
+  position: relative;
+}
+
+.dialog-box::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--pixel) * -1);
+  left: calc(var(--pixel) * -1);
+  right: calc(var(--pixel) * -1);
+  bottom: calc(var(--pixel) * -1);
+  border: calc(var(--pixel) / 2) solid var(--scumm-highlight);
+  pointer-events: none;
+}
+
+.dialog-title {
+  color: var(--text-gold);
+  font-size: 0.85rem;
+  margin-bottom: calc(var(--pixel) * 3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.dialog-text {
+  color: var(--text-white);
+  font-size: 0.7rem;
+  line-height: 2.2;
+}
+
+/* ===== INVENTORY STYLE GRID ===== */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: calc(var(--pixel) * 2);
+  background: var(--scumm-bg);
+  border: var(--pixel) solid var(--scumm-border);
+  padding: calc(var(--pixel) * 3);
+}
+
+.inventory-item {
+  aspect-ratio: 1;
+  background: var(--scumm-button);
+  border: calc(var(--pixel) / 2) solid var(--scumm-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.45rem;
+  text-align: center;
+  padding: calc(var(--pixel) * 2);
+  color: var(--text-cream);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.inventory-item:hover {
+  background: var(--scumm-highlight);
+  color: var(--scumm-bg);
+  transform: scale(1.05);
+}
+
+/* ===== PIXEL TEXT STYLES ===== */
+.pixel-title {
+  font-size: 1.5rem;
+  color: var(--text-gold);
+  text-shadow: 
+    var(--pixel) var(--pixel) 0 var(--purple-dark),
+    calc(var(--pixel) * 2) calc(var(--pixel) * 2) 0 rgba(0,0,0,0.5);
+  letter-spacing: 3px;
+}
+
+.pixel-subtitle {
+  font-size: 0.8rem;
+  color: var(--green-light);
+}
+
+.pixel-body {
+  font-size: 0.65rem;
+  line-height: 2;
+}
+
+/* ===== ROOM/SCENE AREA ===== */
+.scene-area {
+  flex: 1;
+  padding: calc(var(--pixel) * 6);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ===== STATUS BAR ===== */
+.status-bar {
+  background: var(--scumm-bg);
+  border-top: var(--pixel) solid var(--scumm-border);
+  padding: calc(var(--pixel) * 2) calc(var(--pixel) * 4);
+  font-size: 0.5rem;
+  color: var(--text-cyan);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SKILL TAGS - Inventory Item Style ===== */
+.skill-tag {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--text-white);
+  padding: calc(var(--pixel)) calc(var(--pixel) * 2);
+  margin: calc(var(--pixel));
+  font-size: 0.5rem;
+  border: calc(var(--pixel) / 2) solid var(--green-main);
+  cursor: default;
+  transition: all 0.1s;
+}
+
+.skill-tag:hover {
+  background: var(--green-main);
+  transform: translateY(-2px);
+}
+
+.skill-tag.purple {
+  background: var(--purple-dark);
+  border-color: var(--purple-main);
+}
+
+.skill-tag.purple:hover {
+  background: var(--purple-main);
+}
+
+.skill-tag.orange {
+  background: #8B4513;
+  border-color: var(--mansion-accent);
+}
+
+.skill-tag.orange:hover {
+  background: var(--mansion-accent);
+}
+
+/* ===== TIMELINE STYLE ===== */
+.timeline {
+  position: relative;
+  padding-left: calc(var(--pixel) * 6);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--pixel) * 2);
+  top: 0;
+  bottom: 0;
+  width: var(--pixel);
+  background: var(--scumm-border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: calc(var(--pixel) * 6);
+  padding-left: calc(var(--pixel) * 4);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--pixel) * -4);
+  top: calc(var(--pixel) * 2);
+  width: calc(var(--pixel) * 3);
+  height: calc(var(--pixel) * 3);
+  background: var(--purple-main);
+  border: calc(var(--pixel) / 2) solid var(--text-gold);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  :root {
+    --pixel: 3px;
+  }
+  
+  .pixel-title {
+    font-size: 0.9rem;
+  }
+  
+  .dialog-box {
+    margin: calc(var(--pixel) * 2);
+    padding: calc(var(--pixel) * 3);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --pixel: 2px;
+  }
+  
+  .pixel-title {
+    font-size: 0.7rem;
+  }
+  
+  .verb-btn {
+    font-size: 0.4rem;
+    padding: calc(var(--pixel) * 1) calc(var(--pixel) * 2);
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.cursor-blink::after {
+  content: '_';
+  animation: blink 1s infinite;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: var(--text-cyan);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-gold);
+  text-decoration: underline;
+}
+
+/* ===== PROFILE SWITCH FLIP ANIMATIONS ===== */
+@keyframes profileFlip {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateY(90deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.profile-flipping {
+  animation: profileFlip 0.4s ease-in-out;
+}
+
+.profile-flipping-delay-1 {
+  animation: profileFlip 0.4s ease-in-out;
+  animation-delay: 100ms;
+}
+
+.profile-flipping-delay-2 {
+  animation: profileFlip 0.4s ease-in-out;
+  animation-delay: 200ms;
+}

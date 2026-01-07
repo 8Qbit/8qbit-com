@@ -1,0 +1,19 @@
+apiVersion: linkerd.buoyant.io/v1alpha1
+kind: ControlPlane
+metadata:
+  name: linkerd-control-plane
+spec:
+  components:
+    linkerd:
+      version: enterprise-2.17.0-2
+      controlPlaneConfig:
+        license: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJCdW95YW50IEluYyIsInN1YiI6ImxpY2Vuc2UiLCJhdWQiOiJSaXNraWRldiIsImV4cCI6NDEwMjQ0NDgwMCwiQ2xpZW50SUQiOiJ1RnoyV2J1aGhxLW1Kci1KIiwiQ2xpZW50U2VjcmV0IjoiYTY5NjlkZmEzMTIzYzllNWExMjRmZDdmZDU5MDVlYjQzNjVjZWQ0MmZkZTBmODY5OWI4MTQ2N2M5MWQ0YzkyYyIsIlByb2R1Y3QiOiJCRUwiLCJWZXJzaW9uIjoyLCJNYW5hZ2VkQ29udHJvbFBsYW5lRW5hYmxlZCI6dHJ1ZSwiTWFuYWdlZERhdGFQbGFuZUVuYWJsZWQiOnRydWUsIkVudGVycHJpc2VFbmFibGVkIjp0cnVlLCJIQVpMRW5hYmxlZCI6ZmFsc2UsIkZJUFNFbmFibGVkIjpmYWxzZSwiUGF0Y2hSZWxlYXNlc0VuYWJsZWQiOmZhbHNlfQ.Iz9GLsOcUCInpkYdn7snz7Je3yUUiSFc02SvZBf3CXe22aygQcaEJOb4ZfSHg7Dt8UgUAb2RmK9TWZ0GFiwNFQ
+        identityTrustAnchorsPEM: |
+
+        identity:
+          issuer:
+            scheme: kubernetes.io/tls
+
+        # HA config
+
+
